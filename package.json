@@ -1,0 +1,4 @@
+{
+  "name": "yarn-pnp-test",
+  "packageManager": "yarn@4.5.1"
+}
