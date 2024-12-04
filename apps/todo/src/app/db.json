@@ -1,0 +1,6 @@
+{
+  "todos": [
+    { "id": "1", "title": "NOTE #1", "done": true },
+    { "id": "2", "title": "NOTE #2", "done": false }
+  ]
+}

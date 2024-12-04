@@ -1,8 +1,8 @@
-import type { NextConfig } from "next";
+/* eslint-disable import/no-default-export */
+/* eslint-disable @typescript-eslint/naming-convention */
+import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
+export default {
   /* config options here */
   reactStrictMode: true,
-};
-
-export default nextConfig;
+} as NextConfig
