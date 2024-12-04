@@ -1,0 +1,41 @@
+.button {
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: inline-flex;
+  align-items: center;
+  background-color: var(--button-background-color);
+  color: var(--button-font-color);
+}
+
+.button:hover:not(.text) {
+  background-color: var(--button-hover-background-color);
+  box-shadow: 0px 0px 4px var(--button-shadow-color);
+}
+
+.text.button {
+  color: var(--black);
+  background-color: transparent;
+}
+
+.text.button:hover {
+  background-color: rgba(211, 211, 211, 0.7);
+}
+
+.text.button:active {
+  background-color: rgba(211, 211, 211);
+}
+
+.button-icon {
+  display: flex;
+  align-items: center;
+}
+
+.inner-button {
+  padding: 8px;
+}
+
+.button-icon ~ .inner-button {
+  padding: 0;
+  padding-left: 8px;
+}

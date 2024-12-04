@@ -1,26 +1,31 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "Node",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "target": "es6",
-    "lib": ["ES5", "ES6", "ESNext", "DOM"],
+    "target": "ES2015",
+    "lib": ["esnext", "dom"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "esnext",
-    "isolatedModules": true
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "baseUrl": "."
   },
-  "references": [
-    {
-      "path": "packages/tsconfig"
-    },
-    {
-      "path": "packages/ui"
-    }
-  ],
-  "exclude": ["packages/**/dist/**"],
-  "include": []
+  "exclude": [
+    "node_modules",
+    "**/dist/**/*",
+    ".yarn/**/*",
+    "**/public/**/*",
+    "**/*.json"
+  ]
 }
