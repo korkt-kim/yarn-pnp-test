@@ -11,3 +11,9 @@
 
 !.yarn/cache
 #.pnp.*
+
+# turbo
+.turbo/*
+apps/**/.turbo/
+packages/**/.turbo/
+!.turbo/config.json
