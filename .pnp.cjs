@@ -60,6 +60,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:c8354d0da48bae3222070f514b08c37427f82b2a32cd1cb131fedea472a529f9db9a03dc9812541c7ebe59d3842d2de69bd7647d50f45e3424cf39b0275a2cea#npm:5.1.0"],\
           ["eslint-plugin-simple-import-sort", "virtual:c8354d0da48bae3222070f514b08c37427f82b2a32cd1cb131fedea472a529f9db9a03dc9812541c7ebe59d3842d2de69bd7647d50f45e3424cf39b0275a2cea#npm:12.1.1"],\
           ["prettier", "npm:3.4.2"],\
+          ["turbo", "npm:2.3.3"],\
           ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"]\
         ],\
         "linkType": "SOFT"\
@@ -4910,6 +4911,75 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["turbo", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/cache/turbo-npm-2.3.3-9d1e05e16c-580203a335.zip/node_modules/turbo/",\
+        "packageDependencies": [\
+          ["turbo", "npm:2.3.3"],\
+          ["turbo-darwin-64", "npm:2.3.3"],\
+          ["turbo-darwin-arm64", "npm:2.3.3"],\
+          ["turbo-linux-64", "npm:2.3.3"],\
+          ["turbo-linux-arm64", "npm:2.3.3"],\
+          ["turbo-windows-64", "npm:2.3.3"],\
+          ["turbo-windows-arm64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["turbo-darwin-64", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/unplugged/turbo-darwin-64-npm-2.3.3-b3c7d85087/node_modules/turbo-darwin-64/",\
+        "packageDependencies": [\
+          ["turbo-darwin-64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["turbo-darwin-arm64", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/unplugged/turbo-darwin-arm64-npm-2.3.3-c22f356dfc/node_modules/turbo-darwin-arm64/",\
+        "packageDependencies": [\
+          ["turbo-darwin-arm64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["turbo-linux-64", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/unplugged/turbo-linux-64-npm-2.3.3-f88c6213fe/node_modules/turbo-linux-64/",\
+        "packageDependencies": [\
+          ["turbo-linux-64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["turbo-linux-arm64", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/unplugged/turbo-linux-arm64-npm-2.3.3-1d523a5314/node_modules/turbo-linux-arm64/",\
+        "packageDependencies": [\
+          ["turbo-linux-arm64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["turbo-windows-64", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/unplugged/turbo-windows-64-npm-2.3.3-08958cadb9/node_modules/turbo-windows-64/",\
+        "packageDependencies": [\
+          ["turbo-windows-64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["turbo-windows-arm64", [\
+      ["npm:2.3.3", {\
+        "packageLocation": "./.yarn/unplugged/turbo-windows-arm64-npm-2.3.3-d23b28cafb/node_modules/turbo-windows-arm64/",\
+        "packageDependencies": [\
+          ["turbo-windows-arm64", "npm:2.3.3"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["type-check", [\
       ["npm:0.4.0", {\
         "packageLocation": "./.yarn/cache/type-check-npm-0.4.0-60565800ce-1468777647.zip/node_modules/type-check/",\
@@ -5197,6 +5267,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-react-hooks", "virtual:c8354d0da48bae3222070f514b08c37427f82b2a32cd1cb131fedea472a529f9db9a03dc9812541c7ebe59d3842d2de69bd7647d50f45e3424cf39b0275a2cea#npm:5.1.0"],\
           ["eslint-plugin-simple-import-sort", "virtual:c8354d0da48bae3222070f514b08c37427f82b2a32cd1cb131fedea472a529f9db9a03dc9812541c7ebe59d3842d2de69bd7647d50f45e3424cf39b0275a2cea#npm:12.1.1"],\
           ["prettier", "npm:3.4.2"],\
+          ["turbo", "npm:2.3.3"],\
           ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"]\
         ],\
         "linkType": "SOFT"\

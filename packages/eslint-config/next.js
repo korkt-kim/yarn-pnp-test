@@ -18,7 +18,14 @@ module.exports = {
     'react/function-component-definition': [
       'error',
       {
-        namedComponents: 'arrow-function',
+        namedComponents: [
+          'arrow-function',
+          {
+            pattern: 'src/pages/_app.tsx|src/pages/_document.tsx',
+            'allow-named-functions': true,
+          },
+        ],
+
         unnamedComponents: 'arrow-function',
       },
     ],
