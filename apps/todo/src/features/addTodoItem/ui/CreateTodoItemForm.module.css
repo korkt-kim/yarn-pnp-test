@@ -1,0 +1,20 @@
+.button {
+  width: 110px;
+  border-radius: 5px;
+  height: 38px;
+}
+
+.close-button {
+  border: 1px solid var(--primary);
+  background-color: var(--white);
+  color: var(--primary);
+}
+
+.close-button:hover {
+  background-color: var(--white) !important;
+}
+
+.apply-button {
+  background-color: var(--primary);
+  color: var(--white);
+}

@@ -1,14 +1,23 @@
-import { ACTION_AREA_STYLE, FORM_STYLE } from './formStyle'
+import { useFormContext } from 'react-hook-form'
+
+export interface TodoForm {
+  title: string
+}
 
 export const TodoForm = () => {
+  const { register } = useFormContext()
   return (
-    <form style={FORM_STYLE}>
-      <input
-        type='text'
-        placeholder='Input your note...'
-        style={{ width: '100%' }}
-      />
-      <div style={ACTION_AREA_STYLE}></div>
-    </form>
+    <input
+      style={{
+        width: '100%',
+        height: '38px',
+        border: '1px solid var(--primary)',
+        borderRadius: '5px',
+        padding: '11px 16px',
+      }}
+      type='text'
+      placeholder='Input your note...'
+      {...register('title', { required: true })}
+    />
   )
 }

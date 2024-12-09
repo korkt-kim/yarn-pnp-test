@@ -30,6 +30,23 @@ body {
   overflow-x: hidden;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+button {
+  border: 0;
+  background: transparent;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -53,4 +70,8 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+div[role='dialog'] {
+  width: 500px;
 }

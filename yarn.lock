@@ -3190,6 +3190,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.54.0":
+  version: 7.54.0
+  resolution: "react-hook-form@npm:7.54.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18 || ^19
+  checksum: 10/dd3f133d7635ee610e6c16630de757d1b534b397833f36e2d981a7a84334446d92ac4f17b683a11eeaf55064730a13d262c933c188390974e449256c9047d979
+  languageName: node
+  linkType: hard
+
 "react-icons@npm:^5.3.0":
   version: 5.4.0
   resolution: "react-icons@npm:5.4.0"
@@ -3795,6 +3804,7 @@ __metadata:
     prettier: "npm:^3.4.2"
     react: "npm:19.0.0-rc-66855b96-20241106"
     react-dom: "npm:19.0.0-rc-66855b96-20241106"
+    react-hook-form: "npm:^7.54.0"
     react-icons: "npm:^5.3.0"
     typescript: "npm:^5"
   languageName: unknown

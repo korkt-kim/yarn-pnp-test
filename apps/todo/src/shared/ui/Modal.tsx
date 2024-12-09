@@ -16,34 +16,40 @@ const DialogOverlay = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ ...props }, ref) => (
-  <DialogPrimitive.Overlay ref={ref} className={css.overlay} {...props} />
+  <DialogPrimitive.Overlay ref={ref} {...props} className={css.overlay} />
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
 
 const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
->(({ children, ...props }, ref) => (
+  React.ElementRef<typeof DialogPrimitive.Content> & {
+    hideCloseButton?: boolean
+  },
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content> & {
+    hideCloseButton?: boolean
+  }
+>(({ children, hideCloseButton, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
-    <DialogPrimitive.Content ref={ref} className={css.content} {...props}>
+    <DialogPrimitive.Content ref={ref} {...props} className={css.content}>
       {children}
-      <DialogPrimitive.Close className={css['close-button']}>
-        <X style={{ height: '4px', width: '4px' }} />
-        <span className='sr-only'>Close</span>
-      </DialogPrimitive.Close>
+      {!hideCloseButton && (
+        <DialogPrimitive.Close className={css['close-button']}>
+          <X style={{ height: '16px', width: '16px' }} />
+          <span className='sr-only'>Close</span>
+        </DialogPrimitive.Close>
+      )}
     </DialogPrimitive.Content>
   </DialogPortal>
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
 
 const DialogHeader = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={css['heading-container']} {...props} />
+  <div {...props} className={css['heading-container']} />
 )
 DialogHeader.displayName = 'DialogHeader'
 
 const DialogFooter = ({ ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={css['button-container']} {...props} />
+  <div {...props} className={css['button-container']} />
 )
 DialogFooter.displayName = 'DialogFooter'
 
@@ -51,7 +57,7 @@ const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ ...props }, ref) => (
-  <DialogPrimitive.Title ref={ref} className={css.heading} {...props} />
+  <DialogPrimitive.Title ref={ref} {...props} className={css.heading} />
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName
 
@@ -61,8 +67,8 @@ const DialogDescription = React.forwardRef<
 >(({ ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
-    className={css.description}
     {...props}
+    className={css.description}
   />
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName

@@ -1,14 +1,22 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getTodos } from '@/shared/apis/todoApi/fetchers'
+import { getTodo, getTodos } from '@/shared/apis/todoApi/fetchers'
 
 export const useGetTodoList = () => {
-  useQuery({
+  return useQuery({
     queryKey: todoQueryKey.list(),
     queryFn: () => getTodos(),
   })
 }
 
+export const useGetTodoItem = (id: string) => {
+  return useQuery({
+    queryKey: todoQueryKey.one(id),
+    queryFn: () => getTodo({ id }),
+  })
+}
+
 export const todoQueryKey = {
   list: () => ['todo'] as const,
+  one: (id: string) => ['todo'] as const,
 }
