@@ -4205,6 +4205,28 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["react-hook-form", [\
+      ["npm:7.54.0", {\
+        "packageLocation": "./.yarn/cache/react-hook-form-npm-7.54.0-ba886408dd-dd3f133d76.zip/node_modules/react-hook-form/",\
+        "packageDependencies": [\
+          ["react-hook-form", "npm:7.54.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:1324dfe17ffa24dfbbdabed7f7d94fd3c7753ca30985ad6579e7288fa03a4df09b0431f67c936d7b643913cac3c5289e89eaca27eed3874b39920d68968d9478#npm:7.54.0", {\
+        "packageLocation": "./.yarn/__virtual__/react-hook-form-virtual-7e11a9b608/0/cache/react-hook-form-npm-7.54.0-ba886408dd-dd3f133d76.zip/node_modules/react-hook-form/",\
+        "packageDependencies": [\
+          ["react-hook-form", "virtual:1324dfe17ffa24dfbbdabed7f7d94fd3c7753ca30985ad6579e7288fa03a4df09b0431f67c936d7b643913cac3c5289e89eaca27eed3874b39920d68968d9478#npm:7.54.0"],\
+          ["@types/react", "npm:18.3.14"],\
+          ["react", "npm:19.0.0-rc-66855b96-20241106"]\
+        ],\
+        "packagePeers": [\
+          "@types/react",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["react-icons", [\
       ["npm:5.4.0", {\
         "packageLocation": "./.yarn/cache/react-icons-npm-5.4.0-9588c76e84-c900d475c6.zip/node_modules/react-icons/",\
@@ -4839,6 +4861,7 @@ const RAW_RUNTIME_STATE =
           ["prettier", "npm:3.4.2"],\
           ["react", "npm:19.0.0-rc-66855b96-20241106"],\
           ["react-dom", "virtual:1324dfe17ffa24dfbbdabed7f7d94fd3c7753ca30985ad6579e7288fa03a4df09b0431f67c936d7b643913cac3c5289e89eaca27eed3874b39920d68968d9478#npm:19.0.0-rc-66855b96-20241106"],\
+          ["react-hook-form", "virtual:1324dfe17ffa24dfbbdabed7f7d94fd3c7753ca30985ad6579e7288fa03a4df09b0431f67c936d7b643913cac3c5289e89eaca27eed3874b39920d68968d9478#npm:7.54.0"],\
           ["react-icons", "virtual:1324dfe17ffa24dfbbdabed7f7d94fd3c7753ca30985ad6579e7288fa03a4df09b0431f67c936d7b643913cac3c5289e89eaca27eed3874b39920d68968d9478#npm:5.4.0"],\
           ["typescript", "patch:typescript@npm%3A5.7.2#optional!builtin<compat/typescript>::version=5.7.2&hash=5786d5"]\
         ],\

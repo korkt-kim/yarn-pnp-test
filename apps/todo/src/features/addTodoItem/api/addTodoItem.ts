@@ -6,7 +6,7 @@ import { addTodo } from '@/shared/apis/todoApi/fetchers'
 export const useCreateTodoItem = () => {
   const queryClient = useQueryClient()
 
-  useMutation({
+  return useMutation({
     mutationFn: addTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: todoQueryKey.list() })

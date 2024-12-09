@@ -1,12 +1,30 @@
 import Head from 'next/head'
-import { BsPencil } from 'react-icons/bs'
-import { FaPlus, FaRegMoon, FaRegSun, FaRegTrashAlt } from 'react-icons/fa'
+import { FaPlus } from 'react-icons/fa'
 
 import { Button } from '@/shared/ui/Button'
-import { Select } from '@/shared/ui/Select'
 import { BaseLayout } from '@/widgets/layouts/ui/BaseLayout'
+import { useGetTodoList } from '@/entities/TodoList/api/todoApi'
+import { CreateTodoItemForm } from '@/features/addTodoItem/ui/CreateTodoItemForm'
+import { useModal } from '@/shared/hooks/Modal/useModal'
+import { Dialog } from '@radix-ui/react-dialog'
+import {
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/shared/ui/Modal'
+import { useEffect, useState } from 'react'
 
 const Page = () => {
+  const { data, isLoading } = useGetTodoList()
+
+  const { openDialog, ModalArea } = useModal()
+
+  if (isLoading) {
+    return null
+  }
+
   return (
     <>
       <Head>
@@ -16,7 +34,7 @@ const Page = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <div>
-        <Select
+        {/* <Select
           defaultValue='all'
           style={{
             border: '1px solid var(--primary)',
@@ -41,7 +59,33 @@ const Page = () => {
         <Button icon={<FaRegMoon />} />
         <Button icon={<FaPlus />} />
         <Button icon={<BsPencil />} type='text' />
-        <Button icon={<FaRegSun />}>This is Sun Icon</Button>
+        <Button icon={<FaRegSun />}>This is Sun Icon</Button> */}
+        {ModalArea}
+        {/* <Dialog open={open}>
+          <DialogTrigger asChild>
+            <Button>Edit Profile</Button>
+          </DialogTrigger>
+          <DialogContent className='sm:max-w-[425px]'>
+            <DialogHeader>
+              <DialogTitle>Edit profile</DialogTitle>
+              <DialogDescription>
+                Make changes to your profile here. Click save when you're done.
+              </DialogDescription>
+            </DialogHeader>
+          </DialogContent>
+        </Dialog> */}
+        <Button
+          style={{
+            position: 'fixed',
+            bottom: '50px',
+            right: '50px',
+            borderRadius: '100%',
+          }}
+          onClick={() => {
+            openDialog(<CreateTodoItemForm />)
+          }}
+          icon={<FaPlus />}
+        />
       </div>
     </>
   )

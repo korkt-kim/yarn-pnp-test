@@ -4,6 +4,7 @@
   padding: 8px;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   background-color: var(--button-background-color);
   color: var(--button-font-color);
 }

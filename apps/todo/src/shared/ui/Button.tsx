@@ -2,16 +2,22 @@ import { ComponentProps } from 'react'
 
 import css from './Button.module.css'
 
-export interface IButton extends Omit<ComponentProps<'button'>, 'type'> {
+export interface IButton extends ComponentProps<'button'> {
   icon?: JSX.Element
-  type?: 'text' | 'primary'
+  buttonType?: 'text' | 'primary'
 }
 
-export const Button = ({ children, type, icon, ...rest }: IButton) => {
+export const Button = ({
+  children,
+  buttonType,
+  icon,
+  className,
+  ...rest
+}: IButton) => {
   return (
     <button
-      className={`${css.button} ${type === 'text' ? css.text : ''}`}
-      {...rest}>
+      {...rest}
+      className={`${css.button} ${buttonType === 'text' ? css.text : ''} ${className}`}>
       {icon && <span className={css['button-icon']}>{icon}</span>}
       {children && <span className={css['inner-button']}>{children}</span>}
     </button>

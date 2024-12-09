@@ -22,7 +22,13 @@ export const getTodo = async ({ id }: { id: string }) => {
   return json.find(item => item.id === id)
 }
 
-export const addTodo = async () => {
+export const addTodo = async ({
+  title,
+  description,
+  done,
+}: Omit<ITodoItem, 'id'>) => {
+  alert(`create ${title}, ${description},${done}`)
+
   return await fakeApi()
 }
 
@@ -31,16 +37,8 @@ export const removeTodo = async ({ id }: { id: string }) => {
   return await fakeApi()
 }
 
-export const editTodo = async ({
-  title,
-  description,
-  done,
-}: {
-  title: string
-  description: string
-  done: boolean
-}) => {
-  alert(`${title}, ${description},${done}`)
+export const editTodo = async ({ title, description, done }: ITodoItem) => {
+  alert(`edit ${title}, ${description},${done}`)
 
   return await fakeApi()
 }
