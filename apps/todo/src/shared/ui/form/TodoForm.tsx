@@ -1,6 +1,6 @@
 import { useFormContext } from 'react-hook-form'
 
-export interface TodoForm {
+export interface ITodoForm {
   title: string
 }
 

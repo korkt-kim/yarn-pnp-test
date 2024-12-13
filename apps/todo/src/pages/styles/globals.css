@@ -17,11 +17,10 @@
   --muted-foreground: rgb(108, 117, 125);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--black);
-    --foreground: var(--white);
-  }
+[data-theme='dark'] {
+  --background: var(--black);
+  --foreground: var(--white);
+  color-scheme: dark;
 }
 
 html,
@@ -64,12 +63,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 div[role='dialog'] {

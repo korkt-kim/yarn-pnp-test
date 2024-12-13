@@ -5,7 +5,6 @@ import { ITodoItem } from '@/shared/apis/todoApi/scheme'
 import css from './CreateTodoItemForm.module.css'
 import { Button } from '@/shared/ui/Button'
 import { ACTION_AREA_STYLE } from '@/shared/ui/form/formStyle'
-import { DialogClose } from '@radix-ui/react-dialog'
 import { DialogContent, DialogHeader, DialogTitle } from '@/shared/ui/Modal'
 import { useModalControl } from '@/shared/hooks/Modal/useModalControl'
 
