@@ -2,7 +2,6 @@ import {
   ComponentProps,
   CSSProperties,
   useCallback,
-  useEffect,
   useRef,
   useState,
 } from 'react'
@@ -10,25 +9,26 @@ import {
 import { useOutsideClick } from '../hooks/useOutsideClick'
 import css from './Select.module.css'
 
-export interface ISelect extends Omit<ComponentProps<'div'>, 'onChange'> {
-  options: { label: string; value: string }[]
-  defaultValue?: string
-  value?: string
-  onChange?: (value?: string) => void
+export interface ISelect<T extends string>
+  extends Omit<ComponentProps<'div'>, 'onChange'> {
+  options: { label: string; value: T }[]
+  defaultValue?: T
+  value?: T
+  onChange?: (value?: T) => void
   dropdownStyle?: CSSProperties
 }
 
 // @TODO: color 설정
-export const Select = ({
+export const Select = <T extends string>({
   options,
   defaultValue,
   onChange,
   value,
   dropdownStyle,
   ...rest
-}: ISelect) => {
+}: ISelect<T>) => {
   const containerRef = useRef<HTMLDivElement>(null)
-  const [_value, _setValue] = useState(defaultValue)
+  const [_value, _setValue] = useState<T | undefined>(defaultValue)
   const [open, setOpen] = useState(false)
 
   useOutsideClick(containerRef, () => {
@@ -36,18 +36,13 @@ export const Select = ({
   })
 
   const onClickSelectItem = useCallback(
-    (value?: string) => {
+    (value?: T) => {
       onChange?.(value)
       _setValue(value)
       setOpen(false)
     },
     [onChange]
   )
-
-  useEffect(() => {
-    if (!value) return
-    onClickSelectItem(value)
-  }, [value, onClickSelectItem])
 
   return (
     <div ref={containerRef} className={css.select} {...rest}>

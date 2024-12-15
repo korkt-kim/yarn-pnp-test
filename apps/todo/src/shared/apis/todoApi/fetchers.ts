@@ -8,11 +8,27 @@ const fakeApi = () => {
   })
 }
 
-export const getTodos = async () => {
+export const getTodos = async ({
+  search,
+  done,
+}: {
+  search?: string
+  done?: boolean
+}) => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/todos`)
   const json = (await res.json()) as ITodoItem[]
 
-  return json
+  let ret = json
+
+  if (search) {
+    ret = ret.filter(item => item.title.includes(search))
+  }
+
+  if (typeof done !== 'undefined') {
+    ret = ret.filter(item => item.done === done)
+  }
+
+  return ret
 }
 
 export const getTodo = async ({ id }: { id: string }) => {
@@ -22,12 +38,8 @@ export const getTodo = async ({ id }: { id: string }) => {
   return json.find(item => item.id === id)
 }
 
-export const addTodo = async ({
-  title,
-  description,
-  done,
-}: Omit<ITodoItem, 'id'>) => {
-  alert(`create ${title}, ${description},${done}`)
+export const addTodo = async ({ title, done }: Omit<ITodoItem, 'id'>) => {
+  alert(`create ${title}, ${done}`)
 
   return await fakeApi()
 }
