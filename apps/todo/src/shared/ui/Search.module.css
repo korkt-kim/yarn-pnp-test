@@ -1,0 +1,28 @@
+.search-input {
+  width: 100%;
+  height: 38px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  padding: 11px 16px;
+}
+
+.search-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1;
+  background: transparent;
+}
+
+[data-theme='dark'] .search-button {
+  color: var(--white) !important;
+}
+
+.search-button:hover {
+  background-color: transparent !important;
+}
+
+[dark-theme='dark'] .search-button {
+  color: var(--white);
+}

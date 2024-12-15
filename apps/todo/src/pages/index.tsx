@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { FaPlus, FaRegMoon, FaRegSun, FaSearch } from 'react-icons/fa'
+import { FaPlus, FaRegMoon, FaRegSun } from 'react-icons/fa'
 
 import { Button } from '@/shared/ui/Button'
 import { BaseLayout } from '@/widgets/layouts/ui/BaseLayout'
@@ -10,16 +10,28 @@ import { Select } from '@/shared/ui/Select'
 
 import { useForm } from 'react-hook-form'
 import { useTheme } from '@/shared/hooks/useTheme'
+import { Search } from '@/shared/ui/Search'
+import { TodoListItem } from '@/shared/ui/TodoListItem'
+import { useState } from 'react'
+
+import { useDeleteTodoItem } from '@/features/removeTodoItem/api/removeTodoItem'
+import { UpdateTodoItemForm } from '@/features/editTodoItem/ui/UpdateTodoItemForm'
+import { useUpdateTodoItem } from '@/features/editTodoItem/api/editTodoItem'
 
 const Page = () => {
   const { register, handleSubmit } = useForm<{ search: string }>()
-  const { data, isLoading } = useGetTodoList()
+  const [query, setQuery] = useState<{ search?: string; done?: boolean }>({})
+
+  const { data, isLoading } = useGetTodoList(query)
+  const deleteTodoListMutation = useDeleteTodoItem()
+  const updateTodoListMutation = useUpdateTodoItem()
+
   const [theme, toggleTheme] = useTheme()
 
   const { openDialog, ModalArea } = useModal()
 
   const onSearch = async ({ search }: { search: string }) => {
-    console.log(search)
+    setQuery({ ...query, search })
   }
 
   if (isLoading) {
@@ -39,32 +51,15 @@ const Page = () => {
           <form
             style={{ position: 'relative' }}
             onSubmit={handleSubmit(onSearch)}>
-            <input
-              style={{
-                width: '100%',
-                height: '38px',
-                border: '1px solid var(--primary)',
-                borderRadius: '5px',
-                padding: '11px 16px',
-              }}
-              type='text'
-              {...register('search')}
-            />
-            <Button
-              style={{
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                height: '100%',
-                aspectRatio: 1,
-                background: 'transparent',
-              }}
-              buttonType='text'
-              type='submit'>
-              <FaSearch />
-            </Button>
+            <Search {...register('search')} />
           </form>
           <Select
+            onChange={value =>
+              setQuery({
+                ...query,
+                done: value === 'all' ? undefined : value === 'complete',
+              })
+            }
             defaultValue='all'
             style={{
               border: '1px solid var(--primary)',
@@ -94,33 +89,7 @@ const Page = () => {
             />
           }
         </div>
-        {/* <Select
-          defaultValue='all'
-          style={{
-            border: '1px solid var(--primary)',
-            width: '122px',
-            height: '38px',
-            backgroundColor: '#534CC2',
-            color: 'white',
-          }}
-          dropdownStyle={{
-            color: 'black',
-            border: '1px solid var(--primary)',
-            background: 'var(--white)',
-          }}
-          options={[
-            { label: 'All', value: 'all' },
-            { label: 'Complete', value: 'complete' },
-            { label: 'Incomplete', value: 'incomplete' },
-          ]}
-        />
-        <Button icon={<FaRegTrashAlt />} type='text' />
-        <Button icon={<FaRegSun />} />
-        <Button icon={<FaRegMoon />} />
-        <Button icon={<FaPlus />} />
-        <Button icon={<BsPencil />} type='text' />
-        <Button icon={<FaRegSun />}>This is Sun Icon</Button> */}
-        {ModalArea}
+
         <Button
           style={{
             position: 'fixed',
@@ -133,7 +102,21 @@ const Page = () => {
           }}
           icon={<FaPlus />}
         />
+        {data?.map(item => (
+          <TodoListItem
+            id={item.id}
+            key={item.id}
+            label={item.title}
+            checked={item.done}
+            onChange={({ value }) =>
+              updateTodoListMutation.mutateAsync({ ...item, done: value })
+            }
+            onEdit={() => openDialog(<UpdateTodoItemForm id={item.id} />)}
+            onDelete={() => deleteTodoListMutation.mutateAsync({ id: item.id })}
+          />
+        ))}
       </div>
+      {ModalArea}
     </>
   )
 }

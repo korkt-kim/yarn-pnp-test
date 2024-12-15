@@ -1,0 +1,9 @@
+.button {
+  color: rgba(170, 170, 170) !important;
+}
+
+.checkbox-container {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
