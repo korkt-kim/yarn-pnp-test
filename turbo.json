@@ -4,6 +4,7 @@
     "build": { "outputLogs": "new-only" },
     "lint": { "cache": false },
     "dev": { "cache": false, "persistent": true },
-    "start": { "dependsOn": ["build"], "cache": false, "persistent": true }
+    "start": { "dependsOn": ["build"], "cache": false, "persistent": true },
+    "scan": {"cache": false, "persistent": true}
   }
 }
