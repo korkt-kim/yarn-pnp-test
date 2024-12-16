@@ -11,7 +11,7 @@ import { Select } from '@/shared/ui/Select'
 import { useForm } from 'react-hook-form'
 import { useTheme } from '@/shared/hooks/useTheme'
 import { Search } from '@/shared/ui/Search'
-import { TodoListItem } from '@/shared/ui/TodoListItem'
+import { TodoListItem } from '@/widgets/TodoList/ui/TodoListItem'
 import { useState } from 'react'
 
 import { useDeleteTodoItem } from '@/features/removeTodoItem/api/removeTodoItem'
@@ -23,8 +23,6 @@ const Page = () => {
   const [query, setQuery] = useState<{ search?: string; done?: boolean }>({})
 
   const { data, isLoading } = useGetTodoList(query)
-  const deleteTodoListMutation = useDeleteTodoItem()
-  const updateTodoListMutation = useUpdateTodoItem()
 
   const [theme, toggleTheme] = useTheme()
 
@@ -108,11 +106,6 @@ const Page = () => {
             key={item.id}
             label={item.title}
             checked={item.done}
-            onChange={({ value }) =>
-              updateTodoListMutation.mutateAsync({ ...item, done: value })
-            }
-            onEdit={() => openDialog(<UpdateTodoItemForm id={item.id} />)}
-            onDelete={() => deleteTodoListMutation.mutateAsync({ id: item.id })}
           />
         ))}
       </div>
