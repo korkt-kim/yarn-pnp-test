@@ -18,14 +18,7 @@ module.exports = {
     'react/function-component-definition': [
       'error',
       {
-        namedComponents: [
-          'arrow-function',
-          {
-            pattern: 'src/pages/_app.tsx|src/pages/_document.tsx',
-            'allow-named-functions': true,
-          },
-        ],
-
+        namedComponents: 'arrow-function',
         unnamedComponents: 'arrow-function',
       },
     ],
@@ -86,6 +79,17 @@ module.exports = {
       rules: {
         'import/no-default-export': 0,
         'import/prefer-default-export': 2,
+      },
+    },
+    {
+      files: ['src/pages/_app.tsx', 'src/pages/_document.tsx'],
+      rules: {
+        'react/function-component-definition': [
+          'error',
+          {
+            namedComponents: 'function-declaration',
+          },
+        ],
       },
     },
   ],
