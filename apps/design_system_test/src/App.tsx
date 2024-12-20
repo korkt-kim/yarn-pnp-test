@@ -2,24 +2,25 @@ import './App.css'
 
 import React from 'react'
 
-import logo from './logo.svg'
+import { HeadlessToast } from './headless/Toast'
+import { ToastProvider } from './lifeless/ToastProvider'
+import { SkinlessToast } from './skinless/Toast'
 
 function App() {
   return (
     <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'>
-          Learn React
-        </a>
-      </header>
+      <h3>Headless</h3>
+      <HeadlessToast />
+      <h3>Skinless</h3>
+      <SkinlessToast />
+      <h3>Lifeless</h3>
+      <ToastProvider>
+        {state => (
+          <button onClick={() => state.add('Toast is done!')}>
+            Show toast
+          </button>
+        )}
+      </ToastProvider>
     </div>
   )
 }
