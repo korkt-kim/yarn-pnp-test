@@ -1,10 +1,11 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
-    "build": { "outputLogs": "new-only" },
+    "pm2:start": { "dependsOn": ["build"], "cache": false, "persistent": true },
+    "build": { "outputLogs": "new-only", "outputs": ["build/**"] },
     "lint": { "cache": false },
     "dev": { "cache": false, "persistent": true },
     "start": { "dependsOn": ["build"], "cache": false, "persistent": true },
-    "scan": {"cache": false, "persistent": true}
+    "scan": { "cache": false, "persistent": true }
   }
 }
