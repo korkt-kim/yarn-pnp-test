@@ -8,6 +8,7 @@ module.exports = {
   },
   extends: ['@ypt/eslint-config/react'],
   parser: '@typescript-eslint/parser',
+  ignorePatterns: ['ecosystem.config.js'],
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {

@@ -26,6 +26,7 @@
     "typescript": "^5"
   },
   "scripts": {
+    "pm2:start": "pm2 serve build 3000 --spa",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
